@@ -1,0 +1,3 @@
+import { useState } from 'react';
+import { ArrowRight, Github } from 'lucide-react';
+export default function RepoForm({ onGenerate, loading }) { const [repoUrl, setRepoUrl] = useState(''); return <form className="repo-form" onSubmit={e=>{e.preventDefault();onGenerate(repoUrl)}}><div className="input-icon"><Github size={18}/><input value={repoUrl} onChange={e=>setRepoUrl(e.target.value)} placeholder="https://github.com/owner/repository" required type="url"/></div><button className="button primary" disabled={loading}>{loading?'Analyzing…':'Analyze repository'} <ArrowRight size={16}/></button></form>; }
